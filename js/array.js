@@ -72,8 +72,8 @@ materialesDeCosntruccion.forEach(function(elemento){
          <img src=${elemento.imagen} alt="producto">
          <h3>${elemento.nombre}</h3>
          <p>${elemento.descripcion}</p>
-         <p>${elemento.precio}</p>
-         <a href="a">ver mas</a>
+         <p>$${elemento.precio}</p>
+         <a href="a">Ver mas</a>
          <button class="btn" id='${elemento.id}' >Añadir al carrito</button>
       </div>
    `  
