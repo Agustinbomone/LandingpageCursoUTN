@@ -56,7 +56,7 @@ let materialesDeCosntruccion = [
    },
    
    {
-      id: 6,
+      id: 7,
       nombre: "Clavos PP",
       descripcion: "Clavos Punta Paris 2 pulgadas",
       precio: 1200,
@@ -73,7 +73,6 @@ materialesDeCosntruccion.forEach(function(elemento){
          <h3>${elemento.nombre}</h3>
          <p>${elemento.descripcion}</p>
          <p>$${elemento.precio}</p>
-         <a href="a">Ver mas</a>
          <button class="btn" id='${elemento.id}' >Añadir al carrito</button>
       </div>
    `  
@@ -81,13 +80,18 @@ materialesDeCosntruccion.forEach(function(elemento){
 
 
 let botones= document.querySelectorAll('.btn')
-console.log(botones)
 agregarAlCarrito(botones)
+
+const carrito = []
 
 function agregarAlCarrito(botones){
    botones.forEach(function(boton){
       boton.addEventListener('click', function(){
-         alert('Producto agregado al carrito')
+         boton.innerHTML = "Agregado al carrito";
+         boton.disabled = true
+         carrito.push(materialesDeCosntruccion[boton.id])
+         localStorage.setItem('carrito', JSON.stringify(carrito));
       })
    })
 }
+
